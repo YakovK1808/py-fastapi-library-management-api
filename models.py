@@ -23,3 +23,5 @@ class DBBook(Base):
     author_id = Column(Integer, ForeignKey("author.id"))
 
     author = relationship(DBAuthor)
+
+# end_of_file

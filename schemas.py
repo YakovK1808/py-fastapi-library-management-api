@@ -35,3 +35,5 @@ class Author(AuthorBase):
 
     class Config:
         orm_mode = True
+
+# end_of_file

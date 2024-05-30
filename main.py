@@ -73,3 +73,15 @@ def read_all_books(
         author_id: int | None = None
 ):
     return crud.get_list_of_books(db=db, skip=skip, limit=limit, author_id=author_id)
+
+# New endpoint to filter books by author ID
+
+
+@app.get("/books/author/{author_id}/", response_model=list[schemas.Book])
+def read_books_by_author(author_id: int, db: Session = Depends(get_db)):
+    books = crud.get_list_of_books(db=db, skip=None, limit=None, author_id=author_id)
+    if not books:
+        raise HTTPException(status_code=404, detail="No books found for this author")
+    return books
+
+# end_of_file

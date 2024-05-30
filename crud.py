@@ -77,3 +77,5 @@ def get_list_of_books(
         queryset = queryset.filter(models.DBBook.author_id == author_id)
 
     return queryset.all()
+
+# end_of_file
